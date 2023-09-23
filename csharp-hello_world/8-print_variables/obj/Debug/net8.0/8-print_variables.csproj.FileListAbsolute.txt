@@ -1,0 +1,15 @@
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\obj\Debug\net8.0\8-print_variables.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\obj\Debug\net8.0\8-print_variables.AssemblyInfoInputs.cache
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\obj\Debug\net8.0\8-print_variables.AssemblyInfo.cs
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\obj\Debug\net8.0\8-print_variables.csproj.CoreCompileInputs.cache
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\obj\Debug\net8.0\8-print_variables.sourcelink.json
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\bin\Debug\net8.0\8-print_variables.exe
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\bin\Debug\net8.0\8-print_variables.deps.json
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\bin\Debug\net8.0\8-print_variables.runtimeconfig.json
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\bin\Debug\net8.0\8-print_variables.dll
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\bin\Debug\net8.0\8-print_variables.pdb
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\obj\Debug\net8.0\8-print_variables.dll
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\obj\Debug\net8.0\refint\8-print_variables.dll
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\obj\Debug\net8.0\8-print_variables.pdb
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\obj\Debug\net8.0\8-print_variables.genruntimeconfig.cache
+C:\Users\HP\alu-csharp\csharp-hello_world\8-print_variables\obj\Debug\net8.0\ref\8-print_variables.dll

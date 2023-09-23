@@ -1,0 +1,15 @@
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\bin\Debug\net8.0\11-concat_edges.exe
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\bin\Debug\net8.0\11-concat_edges.deps.json
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\bin\Debug\net8.0\11-concat_edges.runtimeconfig.json
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\bin\Debug\net8.0\11-concat_edges.dll
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\bin\Debug\net8.0\11-concat_edges.pdb
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\obj\Debug\net8.0\11-concat_edges.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\obj\Debug\net8.0\11-concat_edges.AssemblyInfoInputs.cache
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\obj\Debug\net8.0\11-concat_edges.AssemblyInfo.cs
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\obj\Debug\net8.0\11-concat_edges.csproj.CoreCompileInputs.cache
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\obj\Debug\net8.0\11-concat_edges.sourcelink.json
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\obj\Debug\net8.0\11-concat_edges.dll
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\obj\Debug\net8.0\refint\11-concat_edges.dll
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\obj\Debug\net8.0\11-concat_edges.pdb
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\obj\Debug\net8.0\11-concat_edges.genruntimeconfig.cache
+C:\Users\HP\alu-csharp\csharp-hello_world\11-concat_edges\obj\Debug\net8.0\ref\11-concat_edges.dll

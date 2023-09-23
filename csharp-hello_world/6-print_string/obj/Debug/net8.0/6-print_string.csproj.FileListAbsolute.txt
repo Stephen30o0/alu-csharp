@@ -1,0 +1,15 @@
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\bin\Debug\net8.0\6-print_string.exe
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\bin\Debug\net8.0\6-print_string.deps.json
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\bin\Debug\net8.0\6-print_string.runtimeconfig.json
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\bin\Debug\net8.0\6-print_string.dll
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\bin\Debug\net8.0\6-print_string.pdb
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\obj\Debug\net8.0\6-print_string.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\obj\Debug\net8.0\6-print_string.AssemblyInfoInputs.cache
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\obj\Debug\net8.0\6-print_string.AssemblyInfo.cs
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\obj\Debug\net8.0\6-print_string.csproj.CoreCompileInputs.cache
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\obj\Debug\net8.0\6-print_string.sourcelink.json
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\obj\Debug\net8.0\6-print_string.dll
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\obj\Debug\net8.0\refint\6-print_string.dll
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\obj\Debug\net8.0\6-print_string.pdb
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\obj\Debug\net8.0\6-print_string.genruntimeconfig.cache
+C:\Users\HP\alu-csharp\csharp-hello_world\6-print_string\obj\Debug\net8.0\ref\6-print_string.dll

@@ -1,0 +1,15 @@
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\obj\Debug\net7.0\1-last_digit.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\obj\Debug\net7.0\1-last_digit.AssemblyInfoInputs.cache
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\obj\Debug\net7.0\1-last_digit.AssemblyInfo.cs
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\obj\Debug\net7.0\1-last_digit.csproj.CoreCompileInputs.cache
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\obj\Debug\net7.0\1-last_digit.sourcelink.json
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\bin\Debug\net7.0\1-last_digit.exe
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\bin\Debug\net7.0\1-last_digit.deps.json
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\bin\Debug\net7.0\1-last_digit.runtimeconfig.json
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\bin\Debug\net7.0\1-last_digit.dll
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\bin\Debug\net7.0\1-last_digit.pdb
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\obj\Debug\net7.0\1-last_digit.dll
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\obj\Debug\net7.0\refint\1-last_digit.dll
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\obj\Debug\net7.0\1-last_digit.pdb
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\obj\Debug\net7.0\1-last_digit.genruntimeconfig.cache
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\1-last_digit\obj\Debug\net7.0\ref\1-last_digit.dll

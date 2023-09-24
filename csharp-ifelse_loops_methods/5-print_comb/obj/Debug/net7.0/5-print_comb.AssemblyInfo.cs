@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("5-print_comb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee45f2705471fe7deb99bc3df3704056d43f8a30")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b88fd9727ac2581438769a007eae2ec06c5824c9")]
 [assembly: System.Reflection.AssemblyProductAttribute("5-print_comb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("5-print_comb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

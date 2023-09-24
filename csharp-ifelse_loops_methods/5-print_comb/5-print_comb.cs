@@ -11,10 +11,6 @@ class Program
             {
                 Console.Write(", ");
             }
-            else
-            {
-                Console.WriteLine();
-            }
         }
     }
 }

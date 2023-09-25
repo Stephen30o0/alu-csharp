@@ -1,0 +1,15 @@
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\obj\Debug\net8.0\12-fizzbuzz.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\obj\Debug\net8.0\12-fizzbuzz.AssemblyInfoInputs.cache
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\obj\Debug\net8.0\12-fizzbuzz.AssemblyInfo.cs
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\obj\Debug\net8.0\12-fizzbuzz.csproj.CoreCompileInputs.cache
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\obj\Debug\net8.0\12-fizzbuzz.sourcelink.json
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\bin\Debug\net8.0\12-fizzbuzz.exe
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\bin\Debug\net8.0\12-fizzbuzz.deps.json
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\bin\Debug\net8.0\12-fizzbuzz.runtimeconfig.json
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\bin\Debug\net8.0\12-fizzbuzz.dll
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\bin\Debug\net8.0\12-fizzbuzz.pdb
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\obj\Debug\net8.0\12-fizzbuzz.dll
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\obj\Debug\net8.0\refint\12-fizzbuzz.dll
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\obj\Debug\net8.0\12-fizzbuzz.pdb
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\obj\Debug\net8.0\12-fizzbuzz.genruntimeconfig.cache
+C:\Users\HP\alu-csharp\csharp-ifelse_loops_methods\12-fizzbuzz\obj\Debug\net8.0\ref\12-fizzbuzz.dll

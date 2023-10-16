@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 
-class List
+public class Dictionary
 {
-    public static List<int> SortList(List<int> myList)
+    public static string BestScore(Dictionary<string, int> myDict)
     {
-        myList.Sort();
-        return myList;
-    }
-}
+        if (myDict.Count == 0)
+            return "None";
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        List<int> myList = new List<int>() { 9, 1, 5, 4, 7, 2, 6, 3, 8 };
-        List<int> sortedList = List.SortList(myList);
+        int maxScore = int.MinValue;
+        string bestStudent = "";
 
-        Console.WriteLine("Original List: " + string.Join(", ", myList));
-        Console.WriteLine("Sorted List: " + string.Join(", ", sortedList));
+        foreach (var kvp in myDict)
+        {
+            if (kvp.Value > maxScore)
+            {
+                maxScore = kvp.Value;
+                bestStudent = kvp.Key;
+            }
+        }
+
+        return bestStudent;
     }
 }

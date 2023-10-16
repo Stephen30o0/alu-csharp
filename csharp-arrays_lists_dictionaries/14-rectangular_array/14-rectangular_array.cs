@@ -1,26 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
 
-class Dictionary
+public class Program
 {
-    public static void CreatePrint()
+    public static void Main()
     {
-        Dictionary<string, int> nameAgeDict = new Dictionary<string, int>();
-        nameAgeDict.Add("Alice", 25);
-        nameAgeDict.Add("Bob", 30);
-        nameAgeDict.Add("Charlie", 22);
+        int[,] matrix = new int[5, 5];
 
-        foreach (var pair in nameAgeDict)
+        for (int i = 0; i < 5; i++)
         {
-            Console.WriteLine($"{pair.Key}: {pair.Value} years old");
+            for (int j = 0; j < 5; j++)
+            {
+                if (i == 2 && j == 2)
+                    matrix[i, j] = 1;
+                else
+                    matrix[i, j] = 0;
+            }
         }
-    }
-}
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        Dictionary.CreatePrint();
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                Console.Write(matrix[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 
-class Array
+public class Array
 {
-    public static int[] CreatePrint(int size)
+    public static int?[] CreatePrint(int size)
     {
         if (size < 0)
         {
@@ -12,30 +12,18 @@ class Array
         else if (size == 0)
         {
             Console.WriteLine();
-            return new int[0];
+            return new int?[0];
         }
-
-        int[] newArray = new int[size];
-        for (int i = 0; i < size; i++)
+        else
         {
-            newArray[i] = i;
+            int?[] newArray = new int?[size];
+            for (int i = 0; i < size; i++)
+            {
+                newArray[i] = i;
+            }
+
+            Console.WriteLine(string.Join(" ", newArray));
+            return newArray;
         }
-
-        foreach (int num in newArray)
-        {
-            Console.Write(num + " ");
-        }
-        Console.WriteLine("Array Length: " + newArray.Length);
-        return newArray;
-    }
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        int[] newArray;
-
-        newArray = Array.CreatePrint(5);
     }
 }

@@ -1,26 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-class List
+public class Dictionary
 {
-    public static List<int> GenerateEvenNumbers(int n)
+    public static int NumberOfKeys(Dictionary<string, string> myDict)
     {
-        List<int> result = new List<int>();
-
-        for (int i = 2; i <= n; i += 2)
+        int count = 0;
+        foreach (var pair in myDict)
         {
-            result.Add(i);
+            count++;
         }
-
-        return result;
-    }
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        List<int> evenNumbers = List.GenerateEvenNumbers(20);
-        Console.WriteLine("Even Numbers: " + string.Join(", ", evenNumbers));
+        return count;
     }
 }

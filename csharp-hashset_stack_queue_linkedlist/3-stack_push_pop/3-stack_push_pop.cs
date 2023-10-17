@@ -1,8 +1,9 @@
-﻿﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
-class MyStack{
-
-        static void Main(string[] args)
+class MyStack
+{
+    static void Main(string[] args)
     {
         Stack<string> aStack = new Stack<string>();
 
@@ -18,30 +19,40 @@ class MyStack{
 
         Console.WriteLine("------");
 
-        MyStack.Info(aStack, "C#", "Javascript");
+        Info(aStack, "C#", "Javascript");
 
         Console.WriteLine("------");
 
         foreach (string item in aStack)
             Console.WriteLine(item);
     }
-    public static Stack<string> Info(Stack<string> aStack, string newItem, string search){
+
+    public static Stack<string> Info(Stack<string> aStack, string newItem, string search)
+    {
         Console.WriteLine($"Number of items: {aStack.Count}");
 
-        if(aStack.Count == 0){
+        if (aStack.Count == 0)
+        {
             Console.WriteLine("Stack is empty");
-        }else{
+        }
+        else
+        {
             Console.WriteLine($"Top item: {aStack.Peek()}");
         }
 
-        if(aStack.Contains(search)){
+        if (aStack.Contains(search))
+        {
             Console.WriteLine($"Stack contains \"{search}\" : True");
-        }else{
+        }
+        else
+        {
             Console.WriteLine($"Stack contains \"{search}\" : False");
         }
 
-        for(int i = 0; i <= aStack.Count; i++){
-            if(aStack.Contains(search)){
+        for (int i = 0; i <= aStack.Count; i++)
+        {
+            if (aStack.Contains(search))
+            {
                 string temp = aStack.Pop();
             }
         }
@@ -50,3 +61,4 @@ class MyStack{
 
         return aStack;
     }
+}

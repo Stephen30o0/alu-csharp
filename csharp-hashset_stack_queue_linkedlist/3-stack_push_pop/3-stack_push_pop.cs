@@ -21,10 +21,16 @@ class MyStack
         {
             Stack<string> tempStack = new Stack<string>();
             bool foundSearch = false;
-            
+
+            Stack<string> reversedStack = new Stack<string>();
             while (aStack.Count > 0)
             {
-                string item = aStack.Pop();
+                reversedStack.Push(aStack.Pop());
+            }
+
+            while (reversedStack.Count > 0)
+            {
+                string item = reversedStack.Pop();
                 if (!foundSearch)
                 {
                     if (item == search)
@@ -37,10 +43,15 @@ class MyStack
                     tempStack.Push(item);
                 }
             }
-            
+
             while (tempStack.Count > 0)
             {
-                aStack.Push(tempStack.Pop());
+                reversedStack.Push(tempStack.Pop());
+            }
+
+            while (reversedStack.Count > 0)
+            {
+                aStack.Push(reversedStack.Pop());
             }
         }
 

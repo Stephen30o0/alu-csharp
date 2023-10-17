@@ -3,15 +3,36 @@ using System.Collections.Generic;
 
 class LList
 {
+    public static LinkedList<int> CreatePrint(int size)
+    {
+        LinkedList<int> myList = new LinkedList<int>();
+
+        if (size < 0)
+        {
+            return myList; 
+        }
+
+        for (int i = 0; i < size; i++)
+        {
+            myList.AddLast(i);
+            Console.WriteLine(i);
+        }
+
+        return myList;
+    }
+
     public static int Length(LinkedList<int> myLList)
     {
         int count = 0;
-        LinkedListNode<int> current = myLList.First;
-        while (current != null)
+
+        if (myLList != null)
         {
-            count++;
-            current = current.Next;
+            foreach (int item in myLList)
+            {
+                count++;
+            }
         }
+
         return count;
     }
 }

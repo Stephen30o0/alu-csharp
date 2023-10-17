@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿﻿using System;
+
+class Except{
+    public static void ThrowMsg(string msg){
+        throw new Exception(msg);
+    }
+}

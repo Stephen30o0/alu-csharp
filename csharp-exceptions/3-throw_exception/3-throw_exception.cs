@@ -1,9 +1,8 @@
 ﻿using System;
 
-class Except
-{
-    public static void ThrowMsg(string msg)
-    {
-        throw new Exception(msg);
+class Except{
+
+    public static void Throw(){
+        throw new Exception("Exception raised");
     }
 }

@@ -1,0 +1,5 @@
+C:\Users\HP\alu-csharp\csharp-classes\0-enemy\obj\Debug\net7.0\0-enemy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\alu-csharp\csharp-classes\0-enemy\obj\Debug\net7.0\0-enemy.AssemblyInfoInputs.cache
+C:\Users\HP\alu-csharp\csharp-classes\0-enemy\obj\Debug\net7.0\0-enemy.AssemblyInfo.cs
+C:\Users\HP\alu-csharp\csharp-classes\0-enemy\obj\Debug\net7.0\0-enemy.csproj.CoreCompileInputs.cache
+C:\Users\HP\alu-csharp\csharp-classes\0-enemy\obj\Debug\net7.0\0-enemy.sourcelink.json

@@ -3,7 +3,7 @@
 namespace Enemies
 {
     /// <summary>
-    /// Represents a Zombie with health and a name.
+    /// Represents a Zombie with health .
     /// </summary>
     public class Zombie
     {

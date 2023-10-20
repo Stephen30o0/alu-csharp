@@ -1,0 +1,5 @@
+C:\Users\HP\alu-csharp\csharp-tdd\0-add\MyMath.Tests\obj\Debug\net7.0\MyMath.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\alu-csharp\csharp-tdd\0-add\MyMath.Tests\obj\Debug\net7.0\MyMath.Tests.AssemblyInfoInputs.cache
+C:\Users\HP\alu-csharp\csharp-tdd\0-add\MyMath.Tests\obj\Debug\net7.0\MyMath.Tests.AssemblyInfo.cs
+C:\Users\HP\alu-csharp\csharp-tdd\0-add\MyMath.Tests\obj\Debug\net7.0\MyMath.Tests.csproj.CoreCompileInputs.cache
+C:\Users\HP\alu-csharp\csharp-tdd\0-add\MyMath.Tests\obj\Debug\net7.0\MyMath.Tests.sourcelink.json

@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿﻿using System;
+
+public class Obj
+{
+    public static bool IsOfTypeInt(object obj)
+    {
+        return obj is int;
+    }
+}

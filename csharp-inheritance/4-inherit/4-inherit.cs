@@ -1,2 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿﻿using System;
+
+
+public class Animal
+{
+    // This class is empty for demonstration purposes.
+}
+
+public class Dog : Animal
+{
+    // This class is also empty, inheriting from the Animal class.
+}

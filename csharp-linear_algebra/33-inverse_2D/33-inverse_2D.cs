@@ -25,10 +25,10 @@ public class MatrixMath
 
         double[,] inverseMatrix = new double[2, 2];
 
-        inverseMatrix[0, 0] = matrix[1, 1] / determinant;
-        inverseMatrix[0, 1] = -matrix[0, 1] / determinant;
-        inverseMatrix[1, 0] = -matrix[1, 0] / determinant;
-        inverseMatrix[1, 1] = matrix[0, 0] / determinant;
+        inverseMatrix[0, 0] = Math.Round(matrix[1, 1] / determinant, 2);
+        inverseMatrix[0, 1] = Math.Round(-matrix[0, 1] / determinant, 2);
+        inverseMatrix[1, 0] = Math.Round(-matrix[1, 0] / determinant, 2);
+        inverseMatrix[1, 1] = Math.Round(matrix[0, 0] / determinant, 2);
 
         return inverseMatrix;
     }

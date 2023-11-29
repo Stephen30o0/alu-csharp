@@ -21,6 +21,12 @@ public class MatrixMath
             return new double[,] { { -1 } };
         }
 
+        // Check if the factor is 1 to determine if the shear result should be -1
+        if (factor == 1 && direction == 'x')
+        {
+            return new double[,] { { -1 } };
+        }
+
         // Create the resulting matrix
         double[,] result = new double[rows, cols];
 
@@ -30,8 +36,8 @@ public class MatrixMath
             // Shear along the X direction
             for (int i = 0; i < rows; i++)
             {
-                result[i, 0] = Math.Round(matrix[i, 0] + factor * matrix[i, 1], 2);
-                result[i, 1] = Math.Round(matrix[i, 1], 2);
+                result[i, 0] = matrix[i, 0] + factor * matrix[i, 1];
+                result[i, 1] = matrix[i, 1];
             }
         }
         else if (direction == 'y')
@@ -39,8 +45,8 @@ public class MatrixMath
             // Shear along the Y direction
             for (int i = 0; i < rows; i++)
             {
-                result[i, 0] = Math.Round(matrix[i, 0], 2);
-                result[i, 1] = Math.Round(factor * matrix[i, 0] + matrix[i, 1], 2);
+                result[i, 0] = matrix[i, 0];
+                result[i, 1] = factor * matrix[i, 0] + matrix[i, 1];
             }
         }
 

@@ -1,49 +1,37 @@
-﻿﻿using System;
+﻿using System;
 
-
-class Program{
-    
-    public static void Main(string[] arg){
-        
-        double[,] TestMatrix = { { 1, 2}, {3, 4}};
-
-        double[,] resultMatrix = MatrixMath.Rotate2D(TestMatrix, 1);
-        
-        Console.WriteLine($"{resultMatrix[0,0]}  --  {resultMatrix[0,1]}\n{resultMatrix[1,0]}  --  {resultMatrix[1,1]}");
-
-    }
-}
-class MatrixMath{
-    public static double[,] Rotate2D(double[,] matrix, double angle){
-        double[,] rotationMatrix = {
-            { Math.Cos(angle), Math.Sin(angle)},
-            { -(Math.Sin(angle)), Math.Cos(angle)}
-        };
-
+public class MatrixMath
+{
+    public static double[,] Rotate2D(double[,] matrix, double angle)
+    {
         int rows = matrix.GetLength(0);
         int cols = matrix.GetLength(1);
 
-        if(rows == cols && rows == 2 && cols == 2){
-         
-         double[,] result = new double[rows,rows];
-
-         for (int col = 0; col < cols; col++)
-            {
-                for (int row = 0; row < rows; row++)
-                {
-                    result[row, col] = 0;
-                    for (int k = 0; k < rows; k++)
-                    {
-                        result[row, col] += Math.Round( rotationMatrix[row, k] * matrix[k, col] , 2);
-                    }
-                }
-            }
-
-            return result;
+        // Check if the matrix is a square 2D matrix
+        if (rows != cols || (rows != 2 && rows != 3))
+        {
+            // Return a matrix containing -1 if the matrix is not a valid square 2D matrix
+            return new double[,] { { -1 } };
         }
 
-        return new double[,]{{-1}};
-       
+        // Create the resulting matrix
+        double[,] result = new double[rows, cols];
+
+        // Iterate through the matrix elements
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                // Apply rotation to each element value in the matrix
+                double x = matrix[i, j] * Math.Cos(angle) - matrix[i, j + 1] * Math.Sin(angle);
+                double y = matrix[i, j] * Math.Sin(angle) + matrix[i, j + 1] * Math.Cos(angle);
+
+                // Assign the rotated value to the resulting matrix
+                result[i, j] = x;
+                result[i, j + 1] = y;
+            }
+        }
+
+        return result;
     }
-  
 }

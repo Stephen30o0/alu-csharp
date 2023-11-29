@@ -24,6 +24,7 @@ public class VectorMath
         return magnitude;
     }
 
+    // Example usage
     public static void Main(string[] args)
     {
         double[] vector2D = { 3.0, 4.0 }; // Example 2D vector

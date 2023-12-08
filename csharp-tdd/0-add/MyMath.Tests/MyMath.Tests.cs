@@ -1,24 +1,34 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using MyMath;
 
-namespace MyMath.Tests
-{
-    [TestClass]
-    public class OperationsTests
+
+
+namespace Tests{
+
+
+    [TestFixture]
+    public class Test_NumberAddition
     {
-        [TestMethod]
-        public void TestAdd()
+        private Operations _myMath;
+
+        [SetUp]
+        public void Setup()
         {
-            // Arrange
-            int a = 2;
-            int b = 3;
+            _myMath = new Operations();
+        }
 
-            // Act
-            int result = Operations.Add(a, b);
-
-            // Assert
-            Assert.AreEqual(5, result);
+        /// <summary>
+        /// Test if addition of two numbers is 4
+        /// </summary>
+        [Test]
+        public void AdditionOperation()
+        {
+            bool state = false;
+          if((Operations.Add(2, 2)) == 4){
+            state = true;
+          }
+            Assert.IsTrue(state, "State is True");
+            
         }
     }
 }

@@ -30,5 +30,24 @@ namespace Tests{
             Assert.IsTrue(state, "State is True");
             
         }
+
+        /// <summary>
+        /// Test case with argument passsing. 
+        /// </summary>
+        /// <param name="value"></param>
+        //[TestCase(7)]
+        ///[TestCase(7)]
+        //[TestCase(7)]
+        
+        /*
+        public void TestMultiInput(int value){
+            bool state = false;
+            if((Operations.Add(2, 5)) == value){
+                state = true;
+            }
+            Assert.IsTrue(state, "state is True");
+        }
+        */
+
     }
 }

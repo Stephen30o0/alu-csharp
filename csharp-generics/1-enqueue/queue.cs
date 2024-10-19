@@ -11,22 +11,29 @@ public class Queue<T>
     /// </summary>
     public class Node
     {
-        public T value; // Can be of any type
-        public Node? next; // Next node in the queue, nullable
+        /// <summary>
+        /// The value of the node.
+        /// </summary>
+        public T? value; // Can be of any type, initialized to null
+
+        /// <summary>
+        /// The next node in the queue.
+        /// </summary>
+        public Node? next; // Next node in the queue, initialized to null
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Node"/> class.
         /// </summary>
         /// <param name="value">The value for the node.</param>
-        public Node(T value)
+        public Node(T? value)
         {
             this.value = value; // Set the value
             this.next = null; // Initialize next to null
         }
     }
 
-    private Node? head; // The first node in the queue, nullable
-    private Node? tail; // The last node in the queue, nullable
+    private Node? head; // The first node in the queue
+    private Node? tail; // The last node in the queue
     private int count; // The number of nodes in the queue
 
     /// <summary>
@@ -43,7 +50,7 @@ public class Queue<T>
     /// Adds a new value to the end of the queue.
     /// </summary>
     /// <param name="value">The value to add.</param>
-    public void Enqueue(T value)
+    public void Enqueue(T? value)
     {
         Node newNode = new Node(value); // Create a new node
 
@@ -68,14 +75,5 @@ public class Queue<T>
     public int Count()
     {
         return count; // Return the count of nodes
-    }
-
-    /// <summary>
-    /// Checks the type of the queue's elements.
-    /// </summary>
-    /// <returns>The type of the elements in the queue.</returns>
-    public Type CheckType()
-    {
-        return typeof(T); // Return the type of T
     }
 }

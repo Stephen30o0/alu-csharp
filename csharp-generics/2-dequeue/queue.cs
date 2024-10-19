@@ -7,33 +7,26 @@
 public class Queue<T>
 {
     /// <summary>
-    /// A node in the queue.
+    /// Represents a node in the queue.
     /// </summary>
     public class Node
     {
-        /// <summary>
-        /// The value of the node.
-        /// </summary>
-        public T? value; // Can be of any type, initialized to null
-
-        /// <summary>
-        /// The next node in the queue.
-        /// </summary>
-        public Node? next; // Next node in the queue, initialized to null
+        public T value; // Value of the node
+        public Node next; // Reference to the next node
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Node"/> class.
         /// </summary>
-        /// <param name="value">The value for the node.</param>
-        public Node(T? value)
+        /// <param name="value">The value for the new node.</param>
+        public Node(T value)
         {
-            this.value = value; // Set the value
-            this.next = null; // Initialize next to null
+            this.value = value; // Set the value of the node
+            this.next = null; // Set the next node to null
         }
     }
 
-    private Node? head; // The first node in the queue
-    private Node? tail; // The last node in the queue
+    private Node head; // The first node in the queue
+    private Node tail; // The last node in the queue
     private int count; // The number of nodes in the queue
 
     /// <summary>
@@ -43,29 +36,26 @@ public class Queue<T>
     {
         head = null; // Initialize head to null
         tail = null; // Initialize tail to null
-        count = 0; // Initialize count to 0
+        count = 0; // Initialize count to zero
     }
 
     /// <summary>
     /// Adds a new value to the end of the queue.
     /// </summary>
-    /// <param name="value">The value to add.</param>
-    public void Enqueue(T? value)
+    /// <param name="value">The value to add to the queue.</param>
+    public void Enqueue(T value)
     {
         Node newNode = new Node(value); // Create a new node
-
         if (head == null) // If the queue is empty
         {
-            head = newNode; // Set head to the new node
-            tail = newNode; // Set tail to the new node
+            head = newNode; // Make the new node the head
         }
         else
         {
-            tail!.next = newNode; // Link the old tail to the new node
-            tail = newNode; // Update the tail to the new node
+            tail.next = newNode; // Link the new node to the end of the queue
         }
-
-        count++; // Increment the count of nodes
+        tail = newNode; // Update the tail to the new node
+        count++; // Increment the count
     }
 
     /// <summary>
@@ -77,7 +67,7 @@ public class Queue<T>
         if (head == null) // If the queue is empty
         {
             Console.WriteLine("Queue is empty");
-            return default(T); // Return the default value of type T
+            return default!; // Return the default value of type T
         }
 
         T value = head.value!; // Get the value of the head node
@@ -93,11 +83,20 @@ public class Queue<T>
     }
 
     /// <summary>
-    /// Gets the number of nodes in the queue.
+    /// Returns the number of nodes in the queue.
     /// </summary>
-    /// <returns>The number of nodes in the queue.</returns>
+    /// <returns>The count of nodes in the queue.</returns>
     public int Count()
     {
-        return count; // Return the count of nodes
+        return count; // Return the current count
+    }
+    
+    /// <summary>
+    /// Checks the type of the queue's elements.
+    /// </summary>
+    /// <returns>The type of the elements in the queue.</returns>
+    public Type CheckType()
+    {
+        return typeof(T); // Return the type of T
     }
 }

@@ -1,6 +1,14 @@
 ﻿using System;
 using System.Text;
 
+class Program
+{
+    static void Main()
+    {
+
+    }
+}
+
 /// <summary>
 /// Represents a generic queue data structure.
 /// </summary>
@@ -15,12 +23,12 @@ public class Queue<T>
         /// <summary>
         /// Gets or sets the value of the node.
         /// </summary>
-        public T value { get; set; }
+        public T value { get; set; } = default(T);
 
         /// <summary>
         /// Gets or sets the next node in the queue.
         /// </summary>
-        public Node next { get; set; }
+        public Node next { get; set; } = null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Node"/> class.
@@ -85,12 +93,12 @@ public class Queue<T>
         if (head == null)
         {
             Console.WriteLine("Queue is empty");
-            return default(T);
+            return (default(T));
         }
         T val = head.value;
         head = head.next;
         count -= 1;
-        return val;
+        return (val);
     }
 
     /// <summary>
@@ -115,14 +123,11 @@ public class Queue<T>
         if (head == null)
         {
             Console.WriteLine("Queue is empty");
-            return;
         }
-
-        Node current = head; // Use a temporary variable to traverse
-        while (current != null)
+        while (head != null)
         {
-            Console.WriteLine(current.value);
-            current = current.next; // Move to the next node
+            Console.WriteLine(head.value);
+            head = head.next;
         }
     }
 
@@ -134,28 +139,25 @@ public class Queue<T>
     {
         if (head == null)
         {
-            Console.WriteLine("Queue is empty");
-            return null;
+            Console.WriteLine("Queue is empty ");
+            return (null);
         }
-
-        if (typeof(T) == typeof(string) || typeof(T) == typeof(char))
+        if (typeof(T) == typeof(String) || typeof(T) == typeof(Char))
         {
-            var concatString = new StringBuilder();
-            Node current = head; // Use a temporary variable to traverse
-            while (current != null)
+            var concatString = new StringBuilder("");
+            while (head != null)
             {
-                concatString.Append(current.value);
-                if (typeof(T) == typeof(string))
+                concatString.Append(head.value);
+                if (typeof(T) == typeof(String))
                 {
                     concatString.Append(" ");
                 }
-                current = current.next; // Move to the next node
+                head = head.next;
             }
-            return concatString.ToString().Trim(); // Remove trailing space if necessary
+            return (concatString.ToString());
         }
-
         Console.WriteLine("Concatenate() is for a queue of Strings or Chars only.");
-        return null;
+        return (null);
     }
 
     /// <summary>
@@ -164,6 +166,6 @@ public class Queue<T>
     /// <returns>The number of items in the queue.</returns>
     public int Count()
     {
-        return count;
+        return (this.count);
     }
 }

@@ -5,7 +5,7 @@ class Program
 {
     static void Main()
     {
-
+        // You can add test cases here if needed.
     }
 }
 
@@ -123,11 +123,14 @@ public class Queue<T>
         if (head == null)
         {
             Console.WriteLine("Queue is empty");
+            return; // Early return to prevent further processing
         }
-        while (head != null)
+
+        Node current = head; // Use a temporary variable to traverse
+        while (current != null)
         {
-            Console.WriteLine(head.value);
-            head = head.next;
+            Console.WriteLine(current.value);
+            current = current.next; // Move to the next node
         }
     }
 
@@ -139,25 +142,28 @@ public class Queue<T>
     {
         if (head == null)
         {
-            Console.WriteLine("Queue is empty ");
-            return (null);
+            Console.WriteLine("Queue is empty");
+            return null; // No need to return a string in this case
         }
+        
         if (typeof(T) == typeof(String) || typeof(T) == typeof(Char))
         {
-            var concatString = new StringBuilder("");
-            while (head != null)
+            var concatString = new StringBuilder();
+            Node current = head; // Use a temporary variable to traverse
+            while (current != null)
             {
-                concatString.Append(head.value);
+                concatString.Append(current.value);
                 if (typeof(T) == typeof(String))
                 {
-                    concatString.Append(" ");
+                    concatString.Append(" "); // Add space only for strings
                 }
-                head = head.next;
+                current = current.next; // Move to the next node
             }
-            return (concatString.ToString());
+            return concatString.ToString().Trim(); // Trim to remove any trailing spaces
         }
+        
         Console.WriteLine("Concatenate() is for a queue of Strings or Chars only.");
-        return (null);
+        return null; // Explicitly return null for non-string/char types
     }
 
     /// <summary>

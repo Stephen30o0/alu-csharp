@@ -12,7 +12,7 @@ public class Queue<T>
     public class Node
     {
         public T value; // Value of the node
-        public Node next; // Reference to the next node
+        public Node? next; // Reference to the next node, nullable
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Node"/> class.
@@ -25,8 +25,8 @@ public class Queue<T>
         }
     }
 
-    private Node head; // The first node in the queue
-    private Node tail; // The last node in the queue
+    private Node? head; // The first node in the queue, nullable
+    private Node? tail; // The last node in the queue, nullable
     private int count; // The number of nodes in the queue
 
     /// <summary>
@@ -52,7 +52,7 @@ public class Queue<T>
         }
         else
         {
-            tail.next = newNode; // Link the new node to the end of the queue
+            tail!.next = newNode; // Link the new node to the end of the queue
         }
         tail = newNode; // Update the tail to the new node
         count++; // Increment the count
@@ -70,7 +70,7 @@ public class Queue<T>
             return default!; // Return the default value of type T
         }
 
-        T value = head.value!; // Get the value of the head node
+        T value = head.value; // Get the value of the head node
         head = head.next; // Move head to the next node
         count--; // Decrement the count
 

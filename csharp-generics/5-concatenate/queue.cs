@@ -23,12 +23,12 @@ public class Queue<T>
         /// <summary>
         /// Gets or sets the value of the node.
         /// </summary>
-        public T value { get; set; } = default(T);
+        public T value { get; set; }
 
         /// <summary>
         /// Gets or sets the next node in the queue.
         /// </summary>
-        public Node next { get; set; } = null;
+        public Node? next { get; set; } // Nullable reference type
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Node"/> class.
@@ -43,12 +43,12 @@ public class Queue<T>
     /// <summary>
     /// The first node in the queue.
     /// </summary>
-    public Node head { get; set; }
+    public Node? head { get; set; } // Nullable reference type
 
     /// <summary>
     /// The last node in the queue.
     /// </summary>
-    public Node tail { get; set; }
+    public Node? tail { get; set; } // Nullable reference type
 
     /// <summary>
     /// The number of items in the queue.
@@ -78,7 +78,7 @@ public class Queue<T>
         }
         else
         {
-            tail.next = n;
+            tail!.next = n; // Use null-forgiving operator
             tail = n;
         }
         this.count += 1;
@@ -93,12 +93,12 @@ public class Queue<T>
         if (head == null)
         {
             Console.WriteLine("Queue is empty");
-            return (default(T));
+            return default!; // Use null-forgiving operator for default value
         }
         T val = head.value;
-        head = head.next;
+        head = head.next; // head is now the next node
         count -= 1;
-        return (val);
+        return val;
     }
 
     /// <summary>
@@ -110,7 +110,7 @@ public class Queue<T>
         if (head == null)
         {
             Console.WriteLine("Queue is empty");
-            return default(T);
+            return default!;
         }
         return head.value;
     }
@@ -126,7 +126,7 @@ public class Queue<T>
             return; // Early return to prevent further processing
         }
 
-        Node current = head; // Use a temporary variable to traverse
+        Node? current = head; // Use a temporary variable to traverse
         while (current != null)
         {
             Console.WriteLine(current.value);
@@ -138,7 +138,7 @@ public class Queue<T>
     /// Concatenates all elements in the queue into a single string.
     /// </summary>
     /// <returns>A concatenated string of all elements in the queue.</returns>
-    public String Concatenate()
+    public String? Concatenate()
     {
         if (head == null)
         {
@@ -149,7 +149,7 @@ public class Queue<T>
         if (typeof(T) == typeof(String) || typeof(T) == typeof(Char))
         {
             var concatString = new StringBuilder();
-            Node current = head; // Use a temporary variable to traverse
+            Node? current = head; // Use a temporary variable to traverse
             while (current != null)
             {
                 concatString.Append(current.value);
@@ -172,6 +172,6 @@ public class Queue<T>
     /// <returns>The number of items in the queue.</returns>
     public int Count()
     {
-        return (this.count);
+        return this.count;
     }
 }

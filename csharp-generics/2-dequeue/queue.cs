@@ -11,7 +11,14 @@ public class Queue<T>
     /// </summary>
     public class Node
     {
+        /// <summary>
+        /// Gets or sets the value of the node.
+        /// </summary>
         public T value; // Value of the node
+
+        /// <summary>
+        /// Gets or sets the reference to the next node.
+        /// </summary>
         public Node? next; // Reference to the next node, nullable
 
         /// <summary>
@@ -90,7 +97,7 @@ public class Queue<T>
     {
         return count; // Return the current count
     }
-    
+
     /// <summary>
     /// Checks the type of the queue's elements.
     /// </summary>

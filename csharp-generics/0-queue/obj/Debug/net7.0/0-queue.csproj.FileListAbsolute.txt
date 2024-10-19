@@ -1,0 +1,5 @@
+C:\Users\musev\alu-csharp\csharp-generics\0-queue\obj\Debug\net7.0\0-queue.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\musev\alu-csharp\csharp-generics\0-queue\obj\Debug\net7.0\0-queue.AssemblyInfoInputs.cache
+C:\Users\musev\alu-csharp\csharp-generics\0-queue\obj\Debug\net7.0\0-queue.AssemblyInfo.cs
+C:\Users\musev\alu-csharp\csharp-generics\0-queue\obj\Debug\net7.0\0-queue.csproj.CoreCompileInputs.cache
+C:\Users\musev\alu-csharp\csharp-generics\0-queue\obj\Debug\net7.0\0-queue.sourcelink.json

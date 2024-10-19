@@ -6,7 +6,7 @@
     <RootNamespace>_1_enqueue</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <DocumentationFile>bin/Debug/netcoreapp2.1/0-queue.xml</DocumentationFile>
+    <DocumentationFile>bin/Debug/netcoreapp2.1/1-enqueue.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>

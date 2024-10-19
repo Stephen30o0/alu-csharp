@@ -14,7 +14,7 @@ public class Queue<T>
         /// <summary>
         /// Gets or sets the value of the node.
         /// </summary>
-        public T value; // Value of the node
+        public T? value; // Make value nullable
 
         /// <summary>
         /// Gets or sets the reference to the next node.
@@ -25,7 +25,7 @@ public class Queue<T>
         /// Initializes a new instance of the <see cref="Node"/> class.
         /// </summary>
         /// <param name="value">The value for the new node.</param>
-        public Node(T value)
+        public Node(T? value) // Make constructor parameter nullable
         {
             this.value = value; // Set the value of the node
             this.next = null; // Set the next node to null
@@ -50,7 +50,7 @@ public class Queue<T>
     /// Adds a new value to the end of the queue.
     /// </summary>
     /// <param name="value">The value to add to the queue.</param>
-    public void Enqueue(T value)
+    public void Enqueue(T? value) // Make the parameter nullable
     {
         Node newNode = new Node(value); // Create a new node
         if (head == null) // If the queue is empty
@@ -69,15 +69,15 @@ public class Queue<T>
     /// Removes the first value from the queue and returns it.
     /// </summary>
     /// <returns>The value of the first node or default value if the queue is empty.</returns>
-    public T Dequeue()
+    public T? Dequeue() // Return type should be nullable
     {
         if (head == null) // If the queue is empty
         {
             Console.WriteLine("Queue is empty");
-            return default!; // Return the default value of type T
+            return default; // Return default (null for reference types)
         }
 
-        T value = head.value; // Get the value of the head node
+        T? value = head.value; // Get the value of the head node
         head = head.next; // Move head to the next node
         count--; // Decrement the count
 
@@ -102,12 +102,12 @@ public class Queue<T>
     /// Returns the value of the first node without removing it.
     /// </summary>
     /// <returns>The value of the first node or default value if the queue is empty.</returns>
-    public T Peek()
+    public T? Peek() // Return type should be nullable
     {
         if (head == null) // If the queue is empty
         {
             Console.WriteLine("Queue is empty");
-            return default!; // Return the default value of type T
+            return default; // Return default (null for reference types)
         }
 
         return head.value; // Return the value of the head node
@@ -124,7 +124,7 @@ public class Queue<T>
             return; // Exit the method
         }
 
-        Node current = head; // Start from the head
+        Node? current = head; // Start from the head
         while (current != null) // Traverse through the nodes
         {
             Console.WriteLine(current.value); // Print the value of the current node

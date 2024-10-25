@@ -47,9 +47,18 @@ public class Player
     /// <param name="damage">The amount of damage taken.</param>
     public void TakeDamage(float damage)
     {
-        float newHp = hp - damage; // Calculate new HP
-        Console.WriteLine($"{name} takes {damage} damage!");
+        // If damage is negative, set it to 0 and print a message
+        if (damage < 0)
+        {
+            damage = 0;
+            Console.WriteLine($"{name} takes 0 damage!");
+        }
+        else
+        {
+            Console.WriteLine($"{name} takes {damage} damage!");
+        }
 
+        float newHp = hp - damage; // Calculate new HP
         // Validate and update HP
         ValidateHP(newHp);
     }

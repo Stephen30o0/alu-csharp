@@ -3,7 +3,7 @@
 using System;
 
 /// <summary>
-/// Represents the modifier types that can affect player health.
+/// Represents the types of modifiers that can affect player health.
 /// </summary>
 public enum Modifier
 {

@@ -152,17 +152,17 @@ class Program
 {
     static void Main(string[] args)
     {
-        Door frontDoor = new Door("Front Door");
-        Decoration photo = new Decoration("Awkward Family Portrait");
-        Decoration antiqueVase = new Decoration("Antique Vase", 2, true);
-        Key carKey = new Key("Car Key");
+        Door frontDoor = new Door("Bathroom Door");
+        Decoration cabinet = new Decoration("Bathroom Cabinet", 1, true);
+        Decoration mirror = new Decoration("Mirror");
+        Decoration window = new Decoration("Window");
 
         List<Base> allObjects = new List<Base>
         {
             frontDoor,
-            photo,
-            antiqueVase,
-            carKey
+            cabinet,
+            mirror,
+            window
         };
 
         // Execute actions based on interfaces

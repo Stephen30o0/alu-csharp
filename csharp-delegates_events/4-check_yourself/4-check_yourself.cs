@@ -36,6 +36,9 @@ public delegate float CalculateModifier(float baseValue, Modifier modifier);
 /// </summary>
 public class CurrentHPArgs : EventArgs
 {
+    /// <summary>
+    /// Gets the current health points that cannot be modified.
+    /// </summary>
     public float currentHp { get; }
 
     /// <summary>

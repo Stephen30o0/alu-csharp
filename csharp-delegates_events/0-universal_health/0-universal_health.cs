@@ -12,12 +12,13 @@ public class Player
     private float hp;
 
     /// <summary>
-    /// Initializes a new instance of the Player class with default values.
+    /// Initializes a new instance of the Player class with specified name and health points.
     /// </summary>
     /// <param name="name">The name of the player (default is "Player").</param>
     /// <param name="maxHp">The maximum health points of the player (default is 100).</param>
-    public Player(string name = "Player", float maxHp = 100f)
+    public Player(string? name = "Player", float maxHp = 100f) // Mark name as nullable
     {
+        // Check if maxHp is less than or equal to 0
         if (maxHp <= 0)
         {
             maxHp = 100f;
@@ -25,8 +26,8 @@ public class Player
         }
 
         // Handle null or empty string for name
-        this.name = !string.IsNullOrEmpty(name) ? name : "";
-        
+        this.name = string.IsNullOrEmpty(name) ? "Player" : name; // Default to "Player" if null or empty
+
         this.maxHp = maxHp;
         this.hp = maxHp;
     }

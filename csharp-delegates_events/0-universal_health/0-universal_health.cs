@@ -17,6 +17,10 @@ public class Player
     /// <param name="maxHp">The maximum health points of the player (default is 100).</param>
     public Player(string name = "Player", float maxHp = 100f)
     {
+        // Use the provided name or default to "Player"
+        this.name = string.IsNullOrWhiteSpace(name) ? "Player" : name;
+
+        // Validate maxHp
         if (maxHp <= 0)
         {
             this.maxHp = 100f;
@@ -27,8 +31,8 @@ public class Player
             this.maxHp = maxHp;
         }
 
+        // Set hp to the same value as maxHp
         this.hp = this.maxHp;
-        this.name = name;
     }
 
     /// <summary>

@@ -3,6 +3,24 @@
 using System;
 
 /// <summary>
+/// Represents the modifier types that can affect player health.
+/// </summary>
+public enum Modifier
+{
+    Weak,
+    Base,
+    Strong
+}
+
+/// <summary>
+/// Delegate for calculating modified health values based on a base value and a modifier.
+/// </summary>
+/// <param name="baseValue">The base value to modify.</param>
+/// <param name="modifier">The type of modifier to apply.</param>
+/// <returns>The modified value.</returns>
+public delegate float CalculateModifier(float baseValue, Modifier modifier);
+
+/// <summary>
 /// Represents a player character with health properties and methods.
 /// </summary>
 public class Player
@@ -18,16 +36,13 @@ public class Player
     /// <param name="maxHp">The maximum health points of the player (default is 100).</param>
     public Player(string? name = "Player", float maxHp = 100f)
     {
-        // Check if maxHp is less than or equal to 0
         if (maxHp <= 0)
         {
             maxHp = 100f;
             Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
         }
 
-        // Handle null or empty string for name
         this.name = !string.IsNullOrEmpty(name) ? name : "";
-
         this.maxHp = maxHp;
         this.hp = maxHp;
     }
@@ -37,7 +52,6 @@ public class Player
     /// </summary>
     public void PrintHealth()
     {
-        // Always show the name, including the default "Player"
         Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 
@@ -47,7 +61,6 @@ public class Player
     /// <param name="damage">The amount of damage taken.</param>
     public void TakeDamage(float damage)
     {
-        // If damage is negative, set it to 0 and print a message
         if (damage < 0)
         {
             damage = 0;
@@ -58,8 +71,7 @@ public class Player
             Console.WriteLine($"{name} takes {damage} damage!");
         }
 
-        float newHp = hp - damage; // Calculate new HP
-        // Validate and update HP
+        float newHp = hp - damage;
         ValidateHP(newHp);
     }
 
@@ -69,7 +81,6 @@ public class Player
     /// <param name="heal">The amount of health restored.</param>
     public void HealDamage(float heal)
     {
-        // If heal is negative, set it to 0 and print a message
         if (heal < 0)
         {
             heal = 0;
@@ -80,8 +91,7 @@ public class Player
             Console.WriteLine($"{name} heals {heal} HP!");
         }
 
-        float newHp = hp + heal; // Calculate new HP
-        // Validate and update HP
+        float newHp = hp + heal;
         ValidateHP(newHp);
     }
 
@@ -103,5 +113,41 @@ public class Player
         {
             hp = newHp;
         }
+    }
+
+    /// <summary>
+    /// Applies the specified modifier to the base value.
+    /// </summary>
+    /// <param name="baseValue">The base value to be modified.</param>
+    /// <param name="modifier">The modifier to apply.</param>
+    /// <returns>The modified value.</returns>
+    public static float ApplyModifier(float baseValue, Modifier modifier)
+    {
+        return modifier switch
+        {
+            Modifier.Weak => baseValue / 2,
+            Modifier.Base => baseValue,
+            Modifier.Strong => baseValue * 1.5f,
+            _ => baseValue // Default case (should not occur)
+        };
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Player player = new Player("Electric Mouse");
+        CalculateModifier mod = new CalculateModifier(Player.ApplyModifier); // Delegate pointing to ApplyModifier
+
+        player.PrintHealth();
+
+        player.TakeDamage(mod(50f, Modifier.Weak));
+
+        player.PrintHealth();
+
+        player.HealDamage(mod(10f, Modifier.Strong));
+
+        player.PrintHealth();
     }
 }

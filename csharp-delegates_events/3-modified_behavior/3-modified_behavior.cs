@@ -1,22 +1,35 @@
-﻿#nullable enable
-
-using System;
+﻿using System;
 
 /// <summary>
-/// Represents the types of modifiers that can affect player health.
+/// Modifier used with delegates.
 /// </summary>
 public enum Modifier
 {
+    /// <summary>
+    /// Weak default value should be 0.5.
+    /// </summary>
     Weak,
+    /// <summary>
+    /// Base default value should be 1.
+    /// </summary>
     Base,
+    /// <summary>
+    /// Strong default value should be 1.5.
+    /// </summary>
     Strong
 }
 
 /// <summary>
-/// Delegate for calculating modified health values based on a base value and a modifier.
+/// Delegate for calculating player's health.
 /// </summary>
-/// <param name="baseValue">The base value to modify.</param>
-/// <param name="modifier">The type of modifier to apply.</param>
+/// <param name="amount">The amount to modify the player's health by.</param>
+public delegate void CalculateHealth(float amount);
+
+/// <summary>
+/// Delegate for calculating modifier.
+/// </summary>
+/// <param name="baseValue">The base value to be modified.</param>
+/// <param name="modifier">The modifier to apply (Weak, Base, Strong).</param>
 /// <returns>The modified value.</returns>
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
@@ -25,87 +38,83 @@ public delegate float CalculateModifier(float baseValue, Modifier modifier);
 /// </summary>
 public class Player
 {
-    private string name;
-    private float maxHp;
-    private float hp;
+    // Player's name.
+    private string name { get; set; }
+    // Player's maximum health points.
+    private float maxHp { get; set; }
+    // Player's current health points.
+    private float hp { get; set; }
 
     /// <summary>
-    /// Initializes a new instance of the Player class with specified name and health points.
+    /// Initializes a new instance of the Player class.
     /// </summary>
     /// <param name="name">The name of the player (default is "Player").</param>
-    /// <param name="maxHp">The maximum health points of the player (default is 100).</param>
-    public Player(string? name = "Player", float maxHp = 100f)
+    /// <param name="maxHp">The maximum health points of the player (default is 100f).</param>
+    public Player(string name = "Player", float maxHp = 100f)
     {
+        this.name = !string.IsNullOrEmpty(name) ? name : "Player";
+
         if (maxHp <= 0)
         {
-            maxHp = 100f;
             Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
+            maxHp = 100f;
         }
 
-        this.name = !string.IsNullOrEmpty(name) ? name : "";
         this.maxHp = maxHp;
         this.hp = maxHp;
     }
 
     /// <summary>
-    /// Prints the current health status of the player.
+    /// Prints the name and current health of the player.
     /// </summary>
     public void PrintHealth()
     {
-        Console.WriteLine($"{name} has {hp} / {maxHp} health");
+        Console.WriteLine($"{name} has {FormatNumber(hp)} / {FormatNumber(maxHp)} health");
     }
 
     /// <summary>
-    /// Takes damage and updates health accordingly.
+    /// Reduces the player's health by the specified damage amount.
     /// </summary>
-    /// <param name="damage">The amount of damage taken.</param>
+    /// <param name="damage">The amount of damage taken by the player.</param>
     public void TakeDamage(float damage)
     {
-        if (damage < 0)
+        if (damage <= 0)
         {
-            damage = 0;
             Console.WriteLine($"{name} takes 0 damage!");
-        }
-        else
-        {
-            Console.WriteLine($"{name} takes {damage} damage!");
+            return;
         }
 
-        float newHp = hp - damage;
-        ValidateHP(newHp);
+        Console.WriteLine($"{name} takes {FormatNumber(damage)} damage!");
+        ValidateHP(hp - damage);
     }
 
     /// <summary>
-    /// Heals health and updates health accordingly.
+    /// Increases the player's health by the specified healing amount.
     /// </summary>
-    /// <param name="heal">The amount of health restored.</param>
+    /// <param name="heal">The amount of health restored to the player.</param>
     public void HealDamage(float heal)
     {
-        if (heal < 0)
+        if (heal <= 0)
         {
-            heal = 0;
             Console.WriteLine($"{name} heals 0 HP!");
-        }
-        else
-        {
-            Console.WriteLine($"{name} heals {heal} HP!");
+            return;
         }
 
-        float newHp = hp + heal;
-        ValidateHP(newHp);
+        Console.WriteLine($"{name} heals {FormatNumber(heal)} HP!");
+        ValidateHP(hp + heal);
     }
 
     /// <summary>
-    /// Validates and sets the player's health points.
+    /// Validates and sets the player's health to ensure it is within valid bounds.
     /// </summary>
-    /// <param name="newHp">The new health value to validate.</param>
+    /// <param name="newHp">The new health value to set.</param>
     public void ValidateHP(float newHp)
     {
         if (newHp < 0)
         {
             hp = 0;
         }
-        else if (newHp > maxHp)
+        else if (newHp >= maxHp)
         {
             hp = maxHp;
         }
@@ -116,38 +125,43 @@ public class Player
     }
 
     /// <summary>
-    /// Applies the specified modifier to the base value.
+    /// Applies a modifier to a base value.
     /// </summary>
     /// <param name="baseValue">The base value to be modified.</param>
-    /// <param name="modifier">The modifier to apply.</param>
+    /// <param name="modifier">The modifier to apply (Weak, Base, Strong).</param>
     /// <returns>The modified value.</returns>
-    public static float ApplyModifier(float baseValue, Modifier modifier)
+    public float ApplyModifier(float baseValue, Modifier modifier)
     {
-        return modifier switch
+        float modifiedVal = baseValue;
+        switch (modifier)
         {
-            Modifier.Weak => baseValue / 2,
-            Modifier.Base => baseValue,
-            Modifier.Strong => baseValue * 1.5f,
-            _ => baseValue // Default case (should not occur)
-        };
+            case Modifier.Weak:
+                modifiedVal = baseValue * 0.5f;
+                break;
+            case Modifier.Base:
+                modifiedVal = baseValue * 1f;
+                break;
+            case Modifier.Strong:
+                modifiedVal = baseValue * 1.5f;
+                break;
+        }
+        return modifiedVal;
     }
-}
 
-class Program
-{
-    static void Main(string[] args)
+    /// <summary>
+    /// Formats a number to remove unnecessary decimal places.
+    /// </summary>
+    /// <param name="number">The number to format.</param>
+    /// <returns>The formatted number as a string.</returns>
+    private string FormatNumber(float number)
     {
-        Player player = new Player("Electric Mouse");
-        CalculateModifier mod = new CalculateModifier(Player.ApplyModifier); // Delegate pointing to ApplyModifier
-
-        player.PrintHealth();
-
-        player.TakeDamage(mod(50f, Modifier.Weak));
-
-        player.PrintHealth();
-
-        player.HealDamage(mod(10f, Modifier.Strong));
-
-        player.PrintHealth();
+        if (number % 1 == 0)
+        {
+            return ((int)number).ToString();
+        }
+        else
+        {
+            return number.ToString("0.##");
+        }
     }
 }

@@ -26,7 +26,7 @@ public class Player
         }
 
         // Handle null or empty string for name
-        this.name = string.IsNullOrEmpty(name) ? "Player" : name;
+        this.name = string.IsNullOrEmpty(name) ? name : "";
 
         this.maxHp = maxHp;
         this.hp = maxHp;

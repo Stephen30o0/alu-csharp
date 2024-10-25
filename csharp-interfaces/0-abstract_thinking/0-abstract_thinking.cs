@@ -1,18 +1,29 @@
-﻿using System;
+﻿#nullable enable
 
-public abstract class Base
+using System;
+
+/// <summary>
+/// Base class providing foundational properties for inheritance.
+/// </summary>
+abstract class Base
 {
-    // Public property 'name' of type string
-    public string name { get; set; }
+    private string _name = string.Empty; // Backing field with default value
 
-    // Override ToString() method
+    /// <summary>
+    /// Gets or sets the name associated with the instance.
+    /// </summary>
+    public string name
+    {
+        get => _name;
+        set => _name = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    /// <summary>
+    /// Overrides the default ToString() method to display custom properties.
+    /// </summary>
+    /// <returns>A string representation of the object, including its name and type.</returns>
     public override string ToString()
     {
-        return $"{name} is a {GetType().Name}";
+        return $"{name} is a {this.GetType()}";
     }
-}
-
-public class SoftwareEngineer : Base
-{
-    // Empty class as per the requirements
 }

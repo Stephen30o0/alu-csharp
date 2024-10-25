@@ -1,205 +1,196 @@
-﻿using System;
+﻿#nullable enable
 
-// CurrentHPArgs class definition
-public class CurrentHPArgs : EventArgs
-{
-    public float currentHp { get; }
+using System;
 
-    public CurrentHPArgs(float newHp)
-    {
-        currentHp = newHp;
-    }
-}
-
-// Modifier enum definition
+/// <summary>
+/// Modifier used with delegates.
+/// </summary>
 public enum Modifier
 {
+    /// <summary> 
+    /// Weak default value should be 0.5.
+    /// </summary>
     Weak,
+    /// <summary> 
+    /// Base default value should be 1.
+    /// </summary>
     Base,
+    /// <summary> 
+    /// Strong default value should be 1.5.
+    /// </summary>
     Strong
 }
 
-// Delegate definition
+/// <summary>
+/// Player's CalculateHealth delegate.
+/// </summary>
+/// <param name="amount">Amount for health.</param>
+public delegate void CalculateHealth(float amount);
+
+/// <summary>
+/// Calculate Modifier delegate.
+/// </summary>
+/// <param name="baseValue">Base value.</param>
+/// <param name="modifier">Modifier: Weak, Base, Strong.</param>
+/// <returns>Returns a modified value.</returns>
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
-// Player class definition
+/// <summary>
+/// Player class.
+/// </summary>
 public class Player
 {
-    private string name { get; set; }
-    private float maxHp { get; set; }
-    private float hp { get; set; }
-    private string status;
-
+    /// <summary>
+    /// Event handler for CurrentHPArgs.
+    /// </summary>
     public event EventHandler<CurrentHPArgs>? HPCheck;
 
-    public Player(string name = "Player", float maxHp = 100f)
-    {
-        this.name = !string.IsNullOrEmpty(name) ? name : "Player";
+    // Player's name
+    private string name { get; set; }
+    // Player's max hp.
+    private float maxHp { get; set; }
+    // Player's hp.
+    private float hp { get; set; }
+    // Player's status.
+    private string status { get; set; }
 
+    /// <summary>
+    /// Player constructor.
+    /// </summary>
+    /// <param name="name">Player's name.</param>
+    /// <param name="maxHp">Player's max hp.</param>
+    /// <param name="status">Player's status.</param>
+    public Player(string name = "Player", float maxHp = 100f, string status = "Undefined")
+    {
+        this.name = name;
         if (maxHp <= 0)
         {
             Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
             maxHp = 100f;
         }
-
         this.maxHp = maxHp;
         this.hp = maxHp;
-        this.status = $"{this.name} is ready to go!";
-
-        // Subscribe to the HPCheck event
+        this.status = status == "Undefined" ? $"{name} is ready to go!" : status;
         HPCheck += CheckStatus;
     }
 
+    /// <summary>
+    /// Prints the name and current health of the player.
+    /// </summary>
     public void PrintHealth()
     {
-        Console.WriteLine($"{name} has {FormatNumber(hp)} / {FormatNumber(maxHp)} health");
+        Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 
+    /// <summary>
+    /// Player takes damage.
+    /// </summary>
+    /// <param name="damage">Amount of damage taken.</param>
     public void TakeDamage(float damage)
     {
-        if (damage <= 0)
+        if (damage < 0)
         {
             Console.WriteLine($"{name} takes 0 damage!");
+            return;
         }
-        else
-        {
-            Console.WriteLine($"{name} takes {FormatNumber(damage)} damage!");
-        }
-
-        // Validate HP regardless of whether damage was taken
+        Console.WriteLine($"{name} takes {damage} damage!");
         ValidateHP(hp - damage);
     }
 
+    /// <summary>
+    /// Player heals.
+    /// </summary>
+    /// <param name="heal">Amount of heals received.</param>
     public void HealDamage(float heal)
     {
-        if (heal <= 0)
+        if (heal < 0)
         {
             Console.WriteLine($"{name} heals 0 HP!");
             return;
         }
-
-        Console.WriteLine($"{name} heals {FormatNumber(heal)} HP!");
+        Console.WriteLine($"{name} heals {heal} HP!");
         ValidateHP(hp + heal);
     }
 
+    /// <summary>
+    /// Validates and sets the new player's hp.
+    /// </summary>
+    /// <param name="newHp">New hp value.</param>
     public void ValidateHP(float newHp)
     {
-        if (newHp < 0)
-        {
-            hp = 0;
-        }
-        else if (newHp >= maxHp)
-        {
-            hp = maxHp;
-        }
-        else
-        {
-            hp = newHp;
-        }
-
-        // Call OnCheckStatus instead of HPCheck
+        hp = newHp < 0 ? 0 : (newHp > maxHp ? maxHp : newHp);
         OnCheckStatus(new CurrentHPArgs(hp));
     }
 
+    /// <summary>
+    /// Applies a modifier to the base value.
+    /// </summary>
+    /// <param name="baseValue">Base value to apply.</param>
+    /// <param name="modifier">Modifier: Weak, Base, Strong.</param>
+    /// <returns>Modified value.</returns>
+    public float ApplyModifier(float baseValue, Modifier modifier)
+    {
+        return modifier switch
+        {
+            Modifier.Weak => baseValue * 0.5f,
+            Modifier.Base => baseValue * 1f,
+            Modifier.Strong => baseValue * 1.5f,
+            _ => baseValue,
+        };
+    }
+
+    // Event used to perform specific status depending on player health
     private void CheckStatus(object? sender, CurrentHPArgs e)
     {
-        if (e.currentHp == maxHp)
+        status = e.currentHp switch
         {
-            status = $"{name} is in perfect health!";
-        }
-        else if (e.currentHp >= maxHp / 2)
-        {
-            status = $"{name} is doing well!";
-        }
-        else if (e.currentHp >= maxHp / 4)
-        {
-            status = $"{name} isn't doing too great...";
-        }
-        else if (e.currentHp > 0)
-        {
-            status = $"{name} needs help!";
-        }
-        else
-        {
-            status = $"{name} is knocked out!";
-        }
-
+            float n when n == maxHp => $"{name} is in perfect health!",
+            float n when n >= maxHp * 0.5f => $"{name} is doing well!",
+            float n when n >= maxHp * 0.25f => $"{name} isn't doing too great...",
+            float n when n > 0 => $"{name} needs help!",
+            _ => $"{name} is knocked out!"
+        };
         Console.WriteLine(status);
     }
 
-    private void HPValueWarning(object sender, CurrentHPArgs e)
+    // Event used to warn user about their health
+    private void HPValueWarning(object? sender, CurrentHPArgs e)
     {
-        if (e.currentHp == 0)
-        {
-            Console.ForegroundColor = ConsoleColor.Red; // Change text color to red for zero health
-            Console.WriteLine("Health has reached zero!");
-        }
-        else
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow; // Change text color to yellow for low health
-            Console.WriteLine("Health is low!");
-        }
-        Console.ResetColor(); // Reset color to default
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(e.currentHp == 0 ? "Health has reached zero!" : "Health is low!");
+        Console.ForegroundColor = ConsoleColor.White;
     }
 
-    private void OnCheckStatus(CurrentHPArgs e)
+    /// <summary>
+    /// Checks status and performs events depending on the situation.
+    /// </summary>
+    /// <param name="e">CurrentHPArgs event.</param>
+    public void OnCheckStatus(CurrentHPArgs e)
     {
-        if (e.currentHp < maxHp / 4)
-        {
-            HPCheck += HPValueWarning; // Subscribe to HPCheck if health is low
-        }
-        else
-        {
-            HPCheck -= HPValueWarning; // Unsubscribe if health is not low
-        }
-
-        // Trigger the HPCheck event
         HPCheck?.Invoke(this, e);
-    }
-
-    private string FormatNumber(float number)
-    {
-        if (number % 1 == 0)
+        if (e.currentHp <= maxHp * 0.25f)
         {
-            return ((int)number).ToString();
+            HPValueWarning(this, e);
         }
-        else
-        {
-            return number.ToString("0.##");
-        }
-    }
-
-    public float ApplyModifier(float baseValue, Modifier modifier)
-    {
-        float modifiedVal = baseValue;
-        switch (modifier)
-        {
-            case Modifier.Weak:
-                modifiedVal = baseValue * 0.5f;
-                break;
-            case Modifier.Base:
-                modifiedVal = baseValue * 1f;
-                break;
-            case Modifier.Strong:
-                modifiedVal = baseValue * 1.5f;
-                break;
-        }
-        return modifiedVal;
     }
 }
 
-// Main Program
-class Program
+/// <summary>
+/// Current HP Args.
+/// </summary>
+public class CurrentHPArgs : EventArgs
 {
-    static void Main(string[] args)
+    /// <summary>
+    /// Current HP cannot be modified.
+    /// </summary>
+    public readonly float currentHp;
+
+    /// <summary>
+    /// Takes a float newHp and sets it as currentHp's value.
+    /// </summary>
+    /// <param name="newHp">New currentHp's value.</param>
+    public CurrentHPArgs(float newHp)
     {
-        Player player = new Player("A Bunch of Angry Eggs");
-        CalculateModifier mod = new CalculateModifier(player.ApplyModifier);
-
-        player.PrintHealth();
-        Console.WriteLine();
-
-        player.TakeDamage(mod(500f, Modifier.Base));
-        player.PrintHealth();
+        currentHp = newHp;
     }
 }

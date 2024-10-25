@@ -199,7 +199,7 @@ class Program
         player.PrintHealth();
         Console.WriteLine();
 
-        player.TakeDamage(mod(1f, Modifier.Base));
+        player.TakeDamage(mod(500f, Modifier.Base));
         player.PrintHealth();
     }
 }

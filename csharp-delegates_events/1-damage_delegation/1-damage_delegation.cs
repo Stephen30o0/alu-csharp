@@ -11,7 +11,10 @@ public class Player
     private float maxHp;
     private float hp;
 
-    // Define the delegate type
+    /// <summary>
+    /// Delegate for calculating health changes (damage or healing).
+    /// </summary>
+    /// <param name="amount">The amount of health change.</param>
     public delegate void CalculateHealth(float amount);
 
     /// <summary>

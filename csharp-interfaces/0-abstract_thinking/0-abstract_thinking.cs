@@ -12,7 +12,7 @@ public abstract class Base
     }
 }
 
-class SoftwareEngineer : Base
+public class SoftwareEngineer : Base
 {
     // Empty class as per the requirements
 }

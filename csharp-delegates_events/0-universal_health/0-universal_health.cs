@@ -1,27 +1,19 @@
-﻿#nullable enable
-using System;
+﻿using System;
 
-/// <summary>
-/// Represents a player with health attributes.
-/// </summary>
 public class Player
 {
-    // Private properties
+    // Properties
     private string name;
     private float maxHp;
     private float hp;
 
-    /// <summary>
-    /// Initializes a new instance of the Player class.
-    /// </summary>
-    /// <param name="name">The name of the player (default is "Player").</param>
-    /// <param name="maxHp">The maximum health points of the player (default is 100).</param>
+    // Constructor
     public Player(string name = "Player", float maxHp = 100f)
     {
-        // Use the provided name or default to "Player"
-        this.name = string.IsNullOrWhiteSpace(name) ? "Player" : name;
+        // Ensure the name is not null, default to "Player" if it is.
+        this.name = name ?? "Player"; // If name is null, set it to "Player".
 
-        // Validate maxHp
+        // Check if maxHp is greater than 0, otherwise set to default value
         if (maxHp <= 0)
         {
             this.maxHp = 100f;
@@ -32,15 +24,14 @@ public class Player
             this.maxHp = maxHp;
         }
 
-        // Set hp to the same value as maxHp
+        // Set current hp to maxHp
         this.hp = this.maxHp;
     }
 
-    /// <summary>
-    /// Prints the current health status of the player.
-    /// </summary>
+    // Method to print health
     public void PrintHealth()
     {
+        // Print the output in the expected format
         Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 }

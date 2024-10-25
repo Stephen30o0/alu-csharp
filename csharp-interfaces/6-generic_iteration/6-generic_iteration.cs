@@ -200,31 +200,9 @@ public class Key : Base, ICollectable
 }
 
 /// <summary>
-/// Class to manage room objects and iterate through their actions based on their type.
+/// Generic collection class for managing room objects.
 /// </summary>
-public static class RoomObjects
+/// <typeparam name="T">The type of objects the collection will hold.</typeparam>
+public class Objs<T> : List<T>
 {
-    /// <summary>
-    /// Iterates through the list of room objects and performs the action based on the specified interface type.
-    /// </summary>
-    /// <param name="roomObjects">The list of room objects.</param>
-    /// <param name="type">The type of the interface to filter and perform the action on.</param>
-    public static void IterateAction(List<Base> roomObjects, Type type)
-    {
-        foreach (var elem in roomObjects)
-        {
-            if (type == typeof(IInteractive) && elem is IInteractive interactive)
-            {
-                interactive.Interact();
-            }
-            else if (type == typeof(IBreakable) && elem is IBreakable breakable)
-            {
-                breakable.Break();
-            }
-            else if (type == typeof(ICollectable) && elem is ICollectable collectable)
-            {
-                collectable.Collect();
-            }
-        }
-    }
 }

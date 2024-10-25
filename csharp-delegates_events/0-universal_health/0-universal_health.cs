@@ -37,6 +37,8 @@ public class Player
     /// </summary>
     public void PrintHealth()
     {
-        Console.WriteLine($"{name} has {hp} / {maxHp} health");
+        // Check if the name is the default value
+        string displayName = (name == "Player") ? "" : name;
+        Console.WriteLine($"{displayName} has {hp} / {maxHp} health");
     }
 }

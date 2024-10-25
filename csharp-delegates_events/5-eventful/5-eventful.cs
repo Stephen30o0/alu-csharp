@@ -19,6 +19,9 @@ public enum Modifier
     Strong
 }
 
+// Delegate definition
+public delegate float CalculateModifier(float baseValue, Modifier modifier);
+
 // Player class definition
 public class Player
 {
@@ -182,5 +185,21 @@ public class Player
                 break;
         }
         return modifiedVal;
+    }
+}
+
+// Main Program
+class Program
+{
+    static void Main(string[] args)
+    {
+        Player player = new Player("A Bunch of Angry Eggs");
+        CalculateModifier mod = new CalculateModifier(player.ApplyModifier);
+
+        player.PrintHealth();
+        Console.WriteLine();
+
+        player.TakeDamage(mod(1f, Modifier.Base));
+        player.PrintHealth();
     }
 }

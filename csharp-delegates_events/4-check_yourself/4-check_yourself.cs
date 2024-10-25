@@ -102,16 +102,19 @@ public class Player
     /// </summary>
     /// <param name="damage">The amount of damage taken by the player.</param>
     public void TakeDamage(float damage)
+{
+    if (damage <= 0)
     {
-        if (damage <= 0)
-        {
-            Console.WriteLine($"{name} takes 0 damage!");
-            return;
-        }
-
-        Console.WriteLine($"{name} takes {FormatNumber(damage)} damage!");
-        ValidateHP(hp - damage);
+        Console.WriteLine($"{name} takes 0 damage!");
     }
+    else
+    {
+        Console.WriteLine($"{name} takes {FormatNumber(damage)} damage!");
+    }
+    
+    // Validate HP regardless of whether damage was taken
+    ValidateHP(hp - damage);
+}
 
     /// <summary>
     /// Increases the player's health by the specified healing amount.

@@ -5,8 +5,19 @@
 /// </summary>
 public enum Modifier
 {
+    /// <summary>
+    /// Weak modifier, reduces health.
+    /// </summary>
     Weak,
+
+    /// <summary>
+    /// Base modifier, no effect.
+    /// </summary>
     Base,
+
+    /// <summary>
+    /// Strong modifier, increases health.
+    /// </summary>
     Strong
 }
 
@@ -50,7 +61,7 @@ public class Player
     /// <summary>
     /// Event for checking the player's HP.
     /// </summary>
-    public event EventHandler<CurrentHPArgs> HPCheck;
+    public event EventHandler<CurrentHPArgs>? HPCheck;
 
     /// <summary>
     /// Initializes a new instance of the Player class.
@@ -141,7 +152,7 @@ public class Player
     /// <summary>
     /// Checks the player's status based on current health.
     /// </summary>
-    private void CheckStatus(object sender, CurrentHPArgs e)
+    private void CheckStatus(object? sender, CurrentHPArgs e)
     {
         if (e.currentHp == maxHp)
         {
